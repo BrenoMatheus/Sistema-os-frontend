@@ -31,9 +31,9 @@ type TOrdersTotalCount = {
   totalCount: number;
 }
 
-const getAll = async (page = 1, filter = ''): Promise<TOrdersTotalCount | Error> => {
+const getAll = async (page = 1, filter = '', id = 0): Promise<TOrdersTotalCount | Error> => {
   try {
-    const urlRelativa = `/orders?page=${page}&limit=${Environment.LIMITE_DE_LINHAS}&filter=${filter}`;
+    const urlRelativa = `/orders?page=${page}&limit=${Environment.LIMITE_DE_LINHAS}&filter=${filter}&id=${id}`;
 
     const { data, headers } = await Api().get(urlRelativa);
 
